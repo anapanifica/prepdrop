@@ -1,0 +1,73 @@
+---
+title: 'Preposition drop in Daghestanian Russian'
+output:
+  pdf_document: default
+---
+\vspace{-15truemm}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\begin{center}
+Final project on linguistic data analysis (version 1, 20.05.20) \\
+Anastasia Panova, \textit{anastasia.b.panova@gmail.com}
+\end{center}
+
+### Preliminary remarks
+
+This project is a statistical part of the bigger project "Preposition drop in Russian spoken in Daghestan" carried out at Linguistic Convergence Laboratory (HSE) by me and my colleague Tatiana Philippova. Although we annotated data together since November 2019, the statistical part was done by me during the course on linguistic data analysis (mainly in April 2020), so I hope I am allowed to submit this work as my research project now. Some parts of the present document are taken from our recently submitted paper.
+
+### Research objectives and hypothesis to be tested
+
+As Daniel et al. (2009) note, "[a] very frequent, and indeed probably one of the most salient linguistic features of the local variety of Russian [in Daghestan] is dropping of the prepositions", cf. (1).
+
+>(1)	tam naprimer Curibe jest' vrač  
+there for_example Tsurib.LOC COP.PRS.SG doctor  
+‘For instance, [in] Tsurib there is a doctor.’ (Daniel et al. 2010: 74)
+ 
+In the previous studies (Daniel & Dobrushina 2009, 2013; Daniel et al. 2010), the phenomenon of preposition drop had been described primarily in qualitative terms. The purpose of the present project was a detailed quantitative study of this phenomenon across a large number of speakers of different L1s. In particular, we wanted to understand what factors condition the phenomenon of preposition drop in locative, directional and temporal phrases.
+
+Based on existing literature on preposition drop in different variaties of different languages, we decided to check whether the probability of preposition drop in Daghestanian Russian depends on the preposition type, the phonetic environment, semantic type of prepositional complement and sociolinguistic characteristics of the speakers.
+
+### Description of input data: features and values, descriptive statistics, data visualisation
+
+```{r, include=FALSE}
+library("tidyverse")
+```
+
+For this research we used data from the Corpus of Russian spoken in Daghestan (DagRus). Specifically, my input data was a dataset consisting of 2350 prepositional phrases, coming from sociolinguistic interviews with 47 speakers.
+
+Each prepositional phrase (with or without preposition drop) was annotated with a number of parameters:
+
+- speaker’s ID;
+- sex;
+- year of birth;
+- native language;
+- education level;
+- prepositional head;
+- initial phoneme of the prepositional complement (consonant/vowel);
+- complement type (toponym, temporal location, institution, other).
+
+A csv file with annotated data can be found on Github.
+
+In addition, for each speaker we annotated the degree of nonstandardness of his/her speech. The nonstandardness was calculated as a ratio of the total number of discrepancies from Standard Russian (excluding preposition drop) to the total number of words produced by a speaker, multiplied by one hundred to obtain the average number of discrepancies per 100 words.
+
+The data on nonstandardness can be found on Github as well.
+
+- Discussion of the methods of analysis and their applicability.
+- Obtained results and their linguistic interpretation. Comparison and discussion of the results produced by different models.
+- Optional section: previous research on the topic, comparison of current results with previous studies.
+- R code used for the analysis.[^2]
+- Annotated data (file in repository in the .csv format, the paper contains a link to this file).
+- Experimental survey questionaries, if applicable (files in repository in the .csv format, the paper contains a link to this file). 
+
+
+
+
+
+
+
+
+
+
