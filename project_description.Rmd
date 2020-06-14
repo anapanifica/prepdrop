@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 \begin{center}
-Final project on linguistic data analysis (version 1, 20.05.20) \\
+Final project on linguistic data analysis (version 2, 14.06.20) \\
 Anastasia Panova, \textit{anastasia.b.panova@gmail.com}
 \end{center}
 
@@ -56,7 +56,7 @@ In addition, for each speaker we annotated the degree of nonstandardness of his/
 
 The data on nonstandardness can be found on [Github](https://github.com/anapanifica/prepdrop/blob/master/Prep_drop_DagRus%20-%20level%20of%20Russian.csv) as well.
 
-Now let me load and prepare these datasets for further analysis (you can surely skip section 2.1, it is not very interesting).
+Now let me load and prepare these datasets for further analysis (you can surely skip section 2.1, if your are not intersted in these rather technical things).
 
 #### 2.1. Preparation of the data
 
@@ -107,7 +107,7 @@ mydat %>%
   filter(lang_family != "Indo-European") -> mydat
 ```
 
-Below I put into order the values of the parameter `omitted`. I do not include these lines in pdf because they contain cyrillic charachters which for some reason ruine the process of knitting to pdf.
+Below I put into order the values of the parameter `omitted`. I do not include these lines in pdf because they contain cyrillic charachters which for some reason ruin the process of knitting to pdf.
 ```{r, include=FALSE}
 mydat %>% 
   mutate(omitted = ifelse(mydat$omitted == "да", "yes", "no")) -> mydat
@@ -115,9 +115,9 @@ mydat %>%
 
 #### 2.2. Descriptive statisctics and data visualization
 
-In this section I look at each of my parameters separately and try to visualize its possible correlation with preposition drop.
+In this section I look at each of my parameters separately and try to visualize their possible correlations with preposition drop.
 
-First, I look at different prepositions. The table shows that only two prepositions _v_ 'in(to)' and _na_ 'on(to)' are omitted frequantly.
+First, I look at different prepositions. The table shows that only two prepositions _v_ 'in(to)' and _na_ 'on(to)' are omitted frequently.
 
 ```{r}
 mydat %>%
@@ -128,7 +128,7 @@ mydat %>%
   arrange(desc(total_n))
 ```
 
-Second, I look at first phoneme of prepositional complement. The difference is very little.
+Second, I look at the first phoneme of the prepositional complement. The difference is very small.
 
 ```{r}
 mydat %>%
@@ -138,7 +138,7 @@ mydat %>%
   mutate(yes_percent = (yes/total_n)*100)
 ```
 
-Then I go to sociolinguistic parameters. Level of education, sex and language family are visulalized together with library `ggpubr`. In the folowing figures I consider only prepositional phrases that are headed by the seven prepositions that are in principle omittable: this way I partially solve the problem of an uneven distribution of omittable and non-omittable prepositions across speakers
+Then I turn to sociolinguistic parameters. Level of education, sex and language family are visulalized together with the library `ggpubr`. In the folowing figures I consider only prepositional phrases that are headed by seven prepositions that are in principle omittable: this way I partially solve the problem of an uneven distribution of omittable and non-omittable prepositions across speakers.
 
 ```{r, include=FALSE}
 mydat$sex <- relevel(mydat$sex, ref = "m")
@@ -349,7 +349,7 @@ aov_res <- aov(nonstandardness ~ P_drop_pattern, data = dat_speakers)
 summary(aov_res)
 ```
 
-This is the end of the statistical part of the research. In the paper there is quite a long discussion of the obtained results but I am not sure how much I should retell here.
+This is the end of the statistical part of the research. In the paper we disuss the obtained results also in light of some cross-linguistic considerations.
 
 
 
